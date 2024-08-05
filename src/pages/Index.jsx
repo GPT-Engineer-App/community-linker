@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import EventList from '../components/EventList';
-import Chat from '../components/Chat';
-import ReputationStaking from '../components/ReputationStaking';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -34,28 +32,34 @@ const Index = () => {
     <div className="min-h-screen bg-navy-blue text-gold p-8">
       <h1 className="text-4xl font-bold mb-8 text-center">Community Membership Portal</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <Card className="col-span-1 md:col-span-2 lg:col-span-1">
+        <Card className="col-span-1">
           <CardHeader>
             <CardTitle>Events</CardTitle>
           </CardHeader>
           <CardContent>
-            <EventList />
+            <Link to="/events">
+              <Button className="w-full">View Events</Button>
+            </Link>
           </CardContent>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-1">
+        <Card className="col-span-1">
           <CardHeader>
             <CardTitle>Chat</CardTitle>
           </CardHeader>
           <CardContent>
-            <Chat />
+            <Link to="/chat">
+              <Button className="w-full">Open Chat</Button>
+            </Link>
           </CardContent>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-1">
+        <Card className="col-span-1">
           <CardHeader>
             <CardTitle>Reputation Staking</CardTitle>
           </CardHeader>
           <CardContent>
-            <ReputationStaking />
+            <Link to="/reputation">
+              <Button className="w-full">Manage Reputation</Button>
+            </Link>
           </CardContent>
         </Card>
       </div>
